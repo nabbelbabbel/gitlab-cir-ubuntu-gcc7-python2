@@ -1,4 +1,4 @@
-FROM sameersbn/gitlab-ci-multi-runner:1.1.2
+FROM sameersbn/gitlab-ci-multi-runner:latest
 MAINTAINER Jan Unsleber <j.unsleber@wwu.de>
 
 RUN apt-get update
