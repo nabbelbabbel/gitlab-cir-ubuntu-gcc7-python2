@@ -1,6 +1,6 @@
 # Docker image with gitlab-ci-multi-runner to run builds for C++, Python and Fortran applications.
 
-Docker image with gitlab-ci-multi-runner, which can run builds for C++, Python and Fortran, especially the Serenity QC Package. 
+Docker image with gitlab-ci-multi-runner, which can run builds for C++, Python and Fortran.
 
 ## How to use
 
