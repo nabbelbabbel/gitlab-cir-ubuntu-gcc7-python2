@@ -5,16 +5,16 @@ RUN apt-get update
 
 # include additional repos
 RUN apt-get update
-#RUN apt-get install -y software-properties-common
-#RUN apt-add-repository -y ppa:ubuntu-toolchain-r/test
-#RUN add-apt-repository -y ppa:george-edison55/cmake-3.x
-#RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN apt-add-repository -y ppa:ubuntu-toolchain-r/test
+RUN add-apt-repository -y ppa:george-edison55/cmake-3.x
+RUN apt-get update
 
 # install build essentials
 RUN apt-get install -y --no-install-recommends make cmake \
         gfortran-4.9 gfortran-4.9-multilib \
         gcc-5 g++-5 \
-        libeigen3-dev liblapack-dev \
+        libeigen3-dev liblapack-dev
         
 # create links for cmake
 RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
