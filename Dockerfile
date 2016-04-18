@@ -5,10 +5,10 @@ RUN apt-get update
 
 # include additional repos
 RUN apt-get update
-RUN apt-get install -y software-properties-common
-RUN apt-add-repository -y ppa:ubuntu-toolchain-r/test
-RUN add-apt-repository -y ppa:george-edison55/cmake-3.x
-RUN apt-get update
+#RUN apt-get install -y software-properties-common
+#RUN apt-add-repository -y ppa:ubuntu-toolchain-r/test
+#RUN add-apt-repository -y ppa:george-edison55/cmake-3.x
+#RUN apt-get update
 
 # install build essentials
 RUN apt-get install -y --no-install-recommends make cmake \
