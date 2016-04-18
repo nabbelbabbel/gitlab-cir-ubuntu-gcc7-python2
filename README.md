@@ -13,7 +13,7 @@ vrunner:
         - /home/gitlab_ci_multi_runner/data
 
 runner:
-    image: thclab.uni-muenster.de/SerenityDevelopers/docker-gitlab-ci-multi-runner-serenity:latest
+    image: nabbelbabbel/docker-gitlab-ci-multi-runner-cpf:latest
     volumes_from:
         - vrunner
     environment:
