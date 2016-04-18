@@ -21,9 +21,6 @@ RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
 RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
 RUN ln -s  /usr/bin/gfortran-4.9  /usr/bin/gfortran
 
-# import ext folder for serenity
-#docker cp ext/ runner_GitlabCIMultiRunner_1:/home/gitlab_ci_multi_runner/.
-
 RUN chown -R ${GITLAB_CI_MULTI_RUNNER_USER}:${GITLAB_CI_MULTI_RUNNER_USER} ${GITLAB_CI_MULTI_RUNNER_HOME_DIR}
 
 RUN locale-gen en_US.UTF-8
