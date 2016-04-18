@@ -17,8 +17,8 @@ runner:
     volumes_from:
         - vrunner
     environment:
-        - CI_SERVER_URL=https://gitlabci.example.com
-        - RUNNER_TOKEN=YOUR_TOKEN_FROM_GITLABCI
+        - CI_SERVER_URL=<enter gitlab-ci url here>
+        - RUNNER_TOKEN=<enter runner token here>
     restart: always
 ```
 ## More information
