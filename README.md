@@ -8,7 +8,7 @@ Example of [Docker Compose](https://docs.docker.com/compose/) file (`docker-comp
 
 ```
 vrunner:
-  image: busybox
+    image: busybox
     volumes:
         - /home/gitlab_ci_multi_runner/data
 
