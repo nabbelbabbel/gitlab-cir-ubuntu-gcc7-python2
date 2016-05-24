@@ -15,7 +15,7 @@ RUN apt-get install -y --no-install-recommends make cmake \
         gfortran-4.9 gfortran-4.9-multilib \
         gcc-5 g++-5 \
         autotools-dev autoconf libtool automake \
-        boost libgmp3-dev \
+        libboost-all-dev libgmp3-dev \
         libeigen3-dev liblapack-dev
         
 # create links for cmake
