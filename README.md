@@ -7,19 +7,16 @@ Docker image with gitlab-ci-multi-runner, which can run builds for C++, Python a
 Example of [Docker Compose](https://docs.docker.com/compose/) file (`docker-compose.yml`)
 
 ```
-vrunner:
-    image: busybox
-    volumes:
-        - /home/gitlab_ci_multi_runner/data
-
-runner:
-    image: nabbelbabbel/docker-gitlab-ci-multi-runner-cpf:latest
-    volumes_from:
-        - vrunner
-    environment:
-        - CI_SERVER_URL=<enter gitlab-ci url here>
-        - RUNNER_TOKEN=<enter runner token here>
-    restart: always
+CPFRunner:
+  image: nabbelbabbel/docker-gitlab-ci-multi-runner-cpf:latest
+  volumes:
+    - /opt/gitlab-ci-multi-runner:/home/gitlab_ci_multi_runner/data
+  environment:
+    - CI_SERVER_URL=<enter gitlab-ci url here>
+    - RUNNER_TOKEN=<enter runner token here>
+    - RUNNER_DESCRIPTION=<name the runner>
+    - RUNNER_EXECUTOR=shell
+  restart: always
 ```
 ## More information
 
