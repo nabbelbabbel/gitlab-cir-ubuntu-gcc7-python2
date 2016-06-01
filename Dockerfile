@@ -20,8 +20,8 @@ RUN apt-get install -y --no-install-recommends make cmake \
 
 RUN  wget http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
 RUN  tar -xvzf 3.2.8.tar.gz
-RUN  cd eigen-eigen-07105f7124f9
-RUN  mkdir build \
+RUN  cd eigen-eigen-07105f7124f9 \
+        && mkdir build \
 	&& cd build \
 	&& cmake .. \
 	&& make \
