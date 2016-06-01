@@ -16,8 +16,17 @@ RUN apt-get install -y --no-install-recommends make cmake \
         gcc-5 g++-5 \
         autotools-dev autoconf libtool automake \
         libboost-dev libgmp3-dev \
-        libeigen3-dev liblapack-dev
-        
+        liblapack-dev
+
+RUN  wget http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
+RUN  tar -xvzf 3.2.8.tar.gz
+RUN  cd eigen-eigen-07105f7124f9
+RUN  mkdir build \
+	&& cd build \
+	&& cmake .. \
+	&& make \
+	&& sudo make install
+
 # create links for cmake
 RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
 RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
