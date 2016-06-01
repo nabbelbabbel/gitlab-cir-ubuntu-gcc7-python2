@@ -18,6 +18,11 @@ RUN apt-get install -y --no-install-recommends make cmake \
         libboost-dev libgmp3-dev \
         liblapack-dev
 
+# create links for cmake
+RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
+RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
+RUN ln -s  /usr/bin/gfortran-4.9  /usr/bin/gfortran
+
 RUN  wget http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
 RUN  tar -xvzf 3.2.8.tar.gz
 RUN  cd eigen-eigen-07105f7124f9 \
@@ -26,11 +31,6 @@ RUN  cd eigen-eigen-07105f7124f9 \
 	&& cmake .. \
 	&& make \
 	&& sudo make install
-
-# create links for cmake
-RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
-RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
-RUN ln -s  /usr/bin/gfortran-4.9  /usr/bin/gfortran
 
 RUN chown -R ${GITLAB_CI_MULTI_RUNNER_USER}:${GITLAB_CI_MULTI_RUNNER_USER} ${GITLAB_CI_MULTI_RUNNER_HOME_DIR}
 
