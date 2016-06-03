@@ -1,8 +1,6 @@
 FROM sameersbn/gitlab-ci-multi-runner:latest
 MAINTAINER Jan Unsleber <j.unsleber@wwu.de>
 
-RUN apt-get update
-
 # include additional repos
 RUN apt-get update
 RUN apt-get install -y software-properties-common
