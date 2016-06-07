@@ -12,7 +12,7 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends make cmake \
         gfortran-4.9 gfortran-4.9-multilib \
         gcc-5 g++-5 \
-        libhdf5-dev libhdf5-cpp-11 \
+        libhdf5-dev libhdf5-serial-dev \
         autotools-dev autoconf libtool automake \
         libboost-dev libgmp3-dev liblapack-dev
 
