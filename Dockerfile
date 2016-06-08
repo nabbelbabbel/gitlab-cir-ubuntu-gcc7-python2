@@ -38,9 +38,9 @@ RUN  cd CMake-hdf5-1.8.17/hdf5-1.8.17/ \
      && sudo make install
 
 RUN ln -s /usr/lib/libhdf5_cpp-static.a /usr/lib/libhdf5_cpp.a
-RUN ln -s /usr/lib/libhdf5_cpp-shared.so /usr/lib/libhdf5_cpp.so
+RUN ln -s /usr/lib/libhdf5_cpp-shared.so.1.8.17 /usr/lib/libhdf5_cpp.so
 RUN ln -s /usr/lib/libhdf5-static.a /usr/lib/libhdf5.a
-RUN ln -s /usr/lib/libhdf5-shared.so /usr/lib/libhdf5.so
+RUN ln -s /usr/lib/libhdf5-shared.so.1.8.17 /usr/lib/libhdf5.so
 
 RUN chown -R ${GITLAB_CI_MULTI_RUNNER_USER}:${GITLAB_CI_MULTI_RUNNER_USER} ${GITLAB_CI_MULTI_RUNNER_HOME_DIR}
 
