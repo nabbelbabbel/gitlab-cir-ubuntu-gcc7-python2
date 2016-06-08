@@ -12,7 +12,6 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends make cmake \
         gfortran-4.9 gfortran-4.9-multilib \
         gcc-5 g++-5 \
-        libhdf5-dev libhdf5-serial-dev \
         autotools-dev autoconf libtool automake \
         libboost-dev libgmp3-dev liblapack-dev
 
@@ -29,6 +28,14 @@ RUN  cd eigen-eigen-07105f7124f9 \
 	&& cmake .. \
 	&& make \
 	&& sudo make install
+	
+RUN  wget http://www.hdfgroup.org/ftp/HDF5/current/src/CMake-hdf5-1.8.17.tar.gz
+RUN  tar -xvzf CMake-hdf5-1.8.17.tar.gz 
+RUN  cd CMake-hdf5-1.8.17/hdf5-1.8.17/ \
+     && mkdir -p build \
+     && cd build/ \
+     && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .. \
+     && sudo make install
 
 RUN chown -R ${GITLAB_CI_MULTI_RUNNER_USER}:${GITLAB_CI_MULTI_RUNNER_USER} ${GITLAB_CI_MULTI_RUNNER_HOME_DIR}
 
