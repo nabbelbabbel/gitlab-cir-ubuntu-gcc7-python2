@@ -20,28 +20,6 @@ RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
 RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
 RUN ln -s  /usr/bin/gfortran-4.9  /usr/bin/gfortran
 
-RUN  wget http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
-RUN  tar -xvzf 3.2.8.tar.gz
-RUN  cd eigen-eigen-07105f7124f9 \
-        && mkdir build \
-	&& cd build \
-	&& cmake .. \
-	&& make \
-	&& sudo make install
-	
-RUN  wget http://www.hdfgroup.org/ftp/HDF5/current/src/CMake-hdf5-1.8.17.tar.gz
-RUN  tar -xvzf CMake-hdf5-1.8.17.tar.gz 
-RUN  cd CMake-hdf5-1.8.17/hdf5-1.8.17/ \
-     && mkdir -p build \
-     && cd build/ \
-     && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .. \
-     && sudo make install
-
-RUN ln -s /usr/lib/libhdf5_cpp-static.a /usr/lib/libhdf5_cpp.a
-RUN ln -s /usr/lib/libhdf5_cpp-shared.so.1.8.17 /usr/lib/libhdf5_cpp.so
-RUN ln -s /usr/lib/libhdf5-static.a /usr/lib/libhdf5.a
-RUN ln -s /usr/lib/libhdf5-shared.so.1.8.17 /usr/lib/libhdf5.so
-
 RUN chown -R ${GITLAB_CI_MULTI_RUNNER_USER}:${GITLAB_CI_MULTI_RUNNER_USER} ${GITLAB_CI_MULTI_RUNNER_HOME_DIR}
 
 RUN locale-gen en_US.UTF-8
