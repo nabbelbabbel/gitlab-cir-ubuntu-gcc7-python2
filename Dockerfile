@@ -14,9 +14,10 @@ RUN apt-get install -y --no-install-recommends make cmake \
         gcc-5 g++-5 \
         autotools-dev autoconf libtool automake \
         libboost-dev libgmp3-dev liblapack-dev \
-        doxygen gconr
+        doxygen gcovr
         
 # create links for cmake
+RUN ln -s  /usr/bin/gcov-5  /usr/bin/gcov
 RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
 RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
 RUN ln -s  /usr/bin/gfortran-4.9  /usr/bin/gfortran
