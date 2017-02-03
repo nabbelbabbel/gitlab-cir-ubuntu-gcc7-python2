@@ -15,7 +15,9 @@ RUN apt-get install -y --no-install-recommends make cmake \
         autotools-dev autoconf libtool automake \
         libboost-dev libgmp3-dev liblapack-dev \
         doxygen gcovr
-        
+
+RUN apt-get install -y libboost-python-dev
+
 # create links for cmake
 RUN ln -s  /usr/bin/gcov-5  /usr/bin/gcov
 RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
