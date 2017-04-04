@@ -14,7 +14,7 @@ RUN apt-get install -y --no-install-recommends make cmake \
         gcc-5 g++-5 \
         autotools-dev autoconf libtool automake \
         libboost-dev libgmp3-dev liblapack-dev \
-        doxygen gcovr
+        doxygen gcovr graphviz
 
 RUN apt-get install -y libboost-python-dev
 
