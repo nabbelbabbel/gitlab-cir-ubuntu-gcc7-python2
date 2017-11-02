@@ -29,7 +29,7 @@ RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
 RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
 RUN ln -s  /usr/bin/gfortran-4.9  /usr/bin/gfortran
 
-RUN chown -R ${GITLAB_CI_MULTI_RUNNER_USER}:${GITLAB_CI_MULTI_RUNNER_USER} ${GITLAB_CI_MULTI_RUNNER_HOME_DIR}
+RUN chown -R ${GITLAB_RUNNER_USER}:${GITLAB_RUNNER_USER} ${GITLAB_RUNNER_HOME_DIR}
 
 RUN locale-gen en_US.UTF-8
 
