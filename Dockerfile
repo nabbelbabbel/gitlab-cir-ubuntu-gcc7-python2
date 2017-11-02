@@ -6,13 +6,6 @@ ENV GITLAB_RUNNER_VERSION=10.1.0 \
     GITLAB_RUNNER_HOME_DIR="/home/gitlab_runner"
 ENV GITLAB_RUNNER_DATA_DIR="${GITLAB_RUNNER_HOME_DIR}/data"
 
-# include additional repos
-RUN apt-get update
-RUN apt-get install -y software-properties-common
-RUN apt-add-repository -y ppa:ubuntu-toolchain-r/test
-RUN add-apt-repository -y ppa:george-edison55/cmake-3.x
-RUN apt-get update
-
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E1DD270288B4E6030699E45FA1715D88E1DF1F24 \
  && echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main" >> /etc/apt/sources.list \
  && apt-get update \
@@ -32,6 +25,12 @@ VOLUME ["${GITLAB_RUNNER_DATA_DIR}"]
 WORKDIR "${GITLAB_RUNNER_HOME_DIR}"
 ENTRYPOINT ["/sbin/entrypoint.sh"]
 
+# include additional repos
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN apt-add-repository -y ppa:ubuntu-toolchain-r/test
+RUN add-apt-repository -y ppa:george-edison55/cmake-3.x
+RUN apt-get update
 
 # install build essentials
 RUN apt-get install -y --no-install-recommends make cmake \
