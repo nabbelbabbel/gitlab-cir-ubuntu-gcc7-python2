@@ -13,6 +13,26 @@ RUN apt-add-repository -y ppa:ubuntu-toolchain-r/test
 RUN add-apt-repository -y ppa:george-edison55/cmake-3.x
 RUN apt-get update
 
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E1DD270288B4E6030699E45FA1715D88E1DF1F24 \
+ && echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main" >> /etc/apt/sources.list \
+ && apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+      git-core openssh-client curl libapparmor1 \
+ && wget -O /usr/local/bin/gitlab-runner \
+      https://gitlab-runner-downloads.s3.amazonaws.com/v${GITLAB_RUNNER_VERSION}/binaries/gitlab-runner-linux-amd64 \
+ && chmod 0755 /usr/local/bin/gitlab-runner \
+ && adduser --disabled-login --gecos 'GitLab CI Runner' ${GITLAB_RUNNER_USER} \
+ && sudo -HEu ${GITLAB_RUNNER_USER} ln -sf ${GITLAB_RUNNER_DATA_DIR}/.ssh ${GITLAB_RUNNER_HOME_DIR}/.ssh \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY entrypoint.sh /sbin/entrypoint.sh
+RUN chmod 755 /sbin/entrypoint.sh
+
+VOLUME ["${GITLAB_RUNNER_DATA_DIR}"]
+WORKDIR "${GITLAB_RUNNER_HOME_DIR}"
+ENTRYPOINT ["/sbin/entrypoint.sh"]
+
+
 # install build essentials
 RUN apt-get install -y --no-install-recommends make cmake \
         gfortran-4.9 gfortran-4.9-multilib \
