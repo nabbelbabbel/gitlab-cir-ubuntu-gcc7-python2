@@ -1,6 +1,6 @@
-# Docker image with gitlab-ci-multi-runner to run builds for C++, Python and Fortran applications.
+# Docker image of a GitLab CI Runner to run builds for using GCC5 and Python2 on Ubuntu 14.04.
 
-Docker image with gitlab-ci-multi-runner, which can run builds for C++, Python and Fortran.
+Docker image with GitLab CI Runner, which can run builds for C++, Python and Fortran.
 
 ## How to use
 
@@ -8,14 +8,11 @@ Example of [Docker Compose](https://docs.docker.com/compose/) file (`docker-comp
 
 ```
 CPFRunner:
-  image: nabbelbabbel/docker-gitlab-ci-multi-runner-cpf:latest
-  volumes:
-    - /opt/gitlab-ci-multi-runner:/home/gitlab_ci_multi_runner/data
+  image: nabbelbabbel/gitlab-cir-ubuntu-gcc5-python2:latest
   environment:
     - CI_SERVER_URL=<enter gitlab-ci url here>
     - RUNNER_TOKEN=<enter runner token here>
     - RUNNER_DESCRIPTION=<name the runner>
-    - RUNNER_EXECUTOR=shell
   restart: always
 ```
 ## More information
