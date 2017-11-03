@@ -11,7 +11,9 @@ ENV RUNNER_CONCURRENT=''
 ENV CI_SERVER_URL=''
 ENV RUNNER_TOKEN=''
 ENV RUNNER_EXECUTOR='docker'
-ENV RUNNER_DESCRIPTION=''
+ENV RUNNER_DESCRIPTION=gcc5-python2
+ENV RUNNER_TAG_LIST=gcc,python
+ENV RUNNER_LIMIT=1
 
 ENV RUNNER_DOCKER_IMAGE='docker:latest'
 ENV RUNNER_DOCKER_MODE='socket'
@@ -49,8 +51,7 @@ RUN apt-get update
 
 # install build essentials
 RUN apt-get install -y --no-install-recommends make cmake \
-        gfortran-4.9 gfortran-4.9-multilib \
-        gcc-5 g++-5 \
+        gfortran-5 gfortran-5-multilib gcc-5 g++-5 \
         autotools-dev autoconf libtool automake \
         libboost-dev libgmp3-dev liblapack-dev \
         doxygen gcovr graphviz
@@ -61,7 +62,7 @@ RUN apt-get install -y libboost-python-dev
 RUN ln -s  /usr/bin/gcov-5  /usr/bin/gcov
 RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
 RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
-RUN ln -s  /usr/bin/gfortran-4.9  /usr/bin/gfortran
+RUN ln -s  /usr/bin/gfortran-5 /usr/bin/gfortran
 
 RUN chown -R ${GITLAB_RUNNER_USER}:${GITLAB_RUNNER_USER} ${GITLAB_RUNNER_HOME_DIR}
 
@@ -69,10 +70,3 @@ RUN locale-gen en_US.UTF-8
 
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
-
-ENV RUNNER_DESCRIPTION=gcc5
-ENV RUNNER_TAG_LIST=c++
-ENV RUNNER_LIMIT=1
-
-ENV RUNNER_TOKEN=
-ENV CI_SERVER_URL=
