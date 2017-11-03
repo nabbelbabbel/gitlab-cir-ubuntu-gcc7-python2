@@ -1,4 +1,4 @@
-# Docker image of a GitLab CI Runner to run builds for using GCC5 and Python2 on Ubuntu 14.04.
+# Docker image of a GitLab CI Runner to run builds using GCC5 and Python2 on Ubuntu 14.04.
 
 Docker image with GitLab CI Runner, which can run builds for C++, Python and Fortran.
 
