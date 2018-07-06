@@ -56,6 +56,7 @@ RUN apt-get install -y --no-install-recommends make cmake \
         doxygen gcovr graphviz
 
 RUN apt-get install -y libboost-python-dev
+RUN apt-get install -y locales
 
 # (Re)create links for cmake
 RUN rm /usr/bin/gcov
