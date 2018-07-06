@@ -58,7 +58,6 @@ RUN apt-get install -y --no-install-recommends make cmake \
 RUN apt-get install -y libboost-python-dev
 
 # create links for cmake
-RUN ln -s  /usr/bin/gcov-7  /usr/bin/gcov
 RUN ln -s  /usr/bin/g++-7  /usr/bin/g++
 RUN ln -s  /usr/bin/gcc-7  /usr/bin/gcc
 RUN ln -s  /usr/bin/gfortran-7 /usr/bin/gfortran
