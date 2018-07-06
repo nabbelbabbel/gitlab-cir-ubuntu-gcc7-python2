@@ -1,4 +1,4 @@
-FROM sameersbn/ubuntu:14.04.20170228
+FROM sameersbn/ubuntu:16.04.20180124
 MAINTAINER Jan Unsleber <j.unsleber@wwu.de>
 
 ENV GITLAB_RUNNER_VERSION=10.1.0 \
@@ -11,7 +11,7 @@ ENV RUNNER_CONCURRENT=''
 ENV CI_SERVER_URL=''
 ENV RUNNER_TOKEN=''
 ENV RUNNER_EXECUTOR='shell'
-ENV RUNNER_DESCRIPTION=gcc5-python2
+ENV RUNNER_DESCRIPTION=gcc7-python2
 ENV RUNNER_TAG_LIST=gcc,python
 ENV RUNNER_LIMIT=1
 
@@ -50,7 +50,7 @@ RUN apt-get update
 
 # install build essentials
 RUN apt-get install -y --no-install-recommends make cmake \
-        gfortran-5 gfortran-5-multilib gcc-5 g++-5 \
+        gfortran-7 gfortran-7-multilib gcc-7 g++-7 \
         autotools-dev autoconf libtool automake \
         libboost-dev libgmp3-dev liblapack-dev \
         doxygen gcovr graphviz
@@ -58,10 +58,10 @@ RUN apt-get install -y --no-install-recommends make cmake \
 RUN apt-get install -y libboost-python-dev
 
 # create links for cmake
-RUN ln -s  /usr/bin/gcov-5  /usr/bin/gcov
-RUN ln -s  /usr/bin/g++-5  /usr/bin/g++
-RUN ln -s  /usr/bin/gcc-5  /usr/bin/gcc
-RUN ln -s  /usr/bin/gfortran-5 /usr/bin/gfortran
+RUN ln -s  /usr/bin/gcov-7  /usr/bin/gcov
+RUN ln -s  /usr/bin/g++-7  /usr/bin/g++
+RUN ln -s  /usr/bin/gcc-7  /usr/bin/gcc
+RUN ln -s  /usr/bin/gfortran-7 /usr/bin/gfortran
 
 RUN chown -R ${GITLAB_RUNNER_USER}:${GITLAB_RUNNER_USER} ${GITLAB_RUNNER_HOME_DIR}
 
